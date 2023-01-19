@@ -1,10 +1,11 @@
 import fs from "node:fs";
 import net from "node:net";
 
-if(fs.existsSync(PIPEPATH)) fs.rmSync(PIPEPATH);
 
 const PIPEPATH  = `/tmp/mysocket.sock`;
 const socket    = [];
+
+if(fs.existsSync(PIPEPATH)) fs.rmSync(PIPEPATH);
 
 const server    = net.createServer((stream) => {
     socket.push(stream);
